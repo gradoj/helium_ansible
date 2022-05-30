@@ -1,3 +1,11 @@
+- name: Disco Mode Client
+  import_tasks: disco-client.yml
+  when: enable_disco_client == True
+
+- name: Packet Multiplexer
+  import_tasks: packet-mux.yml
+  when: enable_packet_mux == True
+
 - name: Miner
   import_tasks: miner.yml
 
@@ -27,11 +35,5 @@
   import_tasks: packet-forwarder.yml
   when: packet_forwarder_config_file_path is defined
 
-- name: Disco Mode Client
-  import_tasks: disco-client.yml
-  when: enable_disco_client == True
 
-- name: Packet Multiplexer
-  import_tasks: packet-mux.yml
-  when: enable_packet_mux == True
 
